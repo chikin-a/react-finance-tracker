@@ -77,6 +77,7 @@ npm run dev
 react-finance-tracker/
 │
 ├── public/
+│   ├── image/
 │
 ├── src/
 │   ├── assets/
