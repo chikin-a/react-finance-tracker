@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+
+@layer utilities {
+  .scrollbar-hide {
+    @media (pointer: fine) {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: #fbf9f6;
+}
