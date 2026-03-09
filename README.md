@@ -1,73 +1,113 @@
-# React + TypeScript + Vite
+# 💰 My Finances – Personal Finance Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean and simple **personal finance tracking web app** that helps users monitor their income, expenses, and overall balance in one place.
 
-Currently, two official plugins are available:
+![Dashboard Preview](./public/image/home.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- 📊 **Dashboard Overview**
+  - View total balance
+  - Monthly income summary
+  - Monthly expense summary
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- ➕ **Add Transactions**
+  - Easily add new income or expense entries
 
-## Expanding the ESLint configuration
+- 🧾 **Recent Activity**
+  - See a history of your latest transactions
+  - Clear labeling for income and expenses
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 🎨 **Modern UI**
+  - Minimal and clean financial dashboard design
+  - Easy-to-read financial cards
+  - Responsive layout
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🖼 Preview
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+The dashboard includes:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **Total Balance Card**
+- **Monthly Income Card**
+- **Monthly Expense Card**
+- **Recent Activity Section**
+
+Example:
+
+- Salary added → `+455`
+- Coffee purchase → `-1.6`
+
+## 🛠 Tech Stack
+
+Depending on your project, update this section if needed.
+
+- **Frontend:** HTML, CSS, JavaScript
+- **Framework:** React
+- **Styling:** Tailwind
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/chikin-a/react-finance-tracker.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Navigate to the project
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd react-finance-tracker
 ```
+
+### 3. Install dependencies (if applicable)
+
+```bash
+npm install
+```
+
+### 4. Run the project
+
+```bash
+npm run dev
+```
+
+## 📁 Project Structure
+
+```
+react-finance-tracker/
+│
+├── public/
+│
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── context/
+│   ├── features/
+│   ├── hooks/
+│   ├── types/
+│   └── utils/
+│
+├── package.json
+└── README.md
+```
+
+## 🎯 Future Improvements
+
+- 📈 Charts for income vs expenses
+- 🗂 Transaction categories
+- 🔍 Transaction filtering
+- 👤 User authentication
+- ☁️ Cloud database support
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Open a Pull Request
+
+##
+
+⭐ If you like this project, consider giving it a star on GitHub!
