@@ -58,7 +58,8 @@ export const TransactionForm: React.FC<EditFormProps> = ({
         rules={{
           required: 'Amount is required',
           validate: (value) => {
-            return value == '0' ? 'Amount cannot be 0' : true
+            const num = Number(value)
+            return num !== 0 || 'Value cannot be zero'
           },
         }}
         render={({ field }) => (

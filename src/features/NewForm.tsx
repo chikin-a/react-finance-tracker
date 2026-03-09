@@ -54,7 +54,8 @@ export const NewForm: React.FC<TransactionFormProps> = ({
         rules={{
           required: 'Amount is required',
           validate: (value) => {
-            return value == '0' ? 'Amount cannot be 0' : value
+            const num = Number(value)
+            return num !== 0 || 'Value cannot be zero'
           },
         }}
         render={({ field }) => (
