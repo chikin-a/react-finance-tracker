@@ -4,13 +4,14 @@ import { useTransactionStore } from './context/TransactionContext'
 import type { NewTransaction, Transaction } from './types'
 
 import { Modal } from './features/Modal'
+import { Header } from './features/Header'
 import { NewForm } from './features/NewForm'
 import { StatCard } from './components/StatCard'
+import { useModalStore } from './context/ModalContext'
 import { TransactionForm } from './features/TransactionForm'
 import { TransactionList } from './features/TransactionList'
-import { Header } from './features/Header'
+import { TransactionChart } from './features/TransactionChart'
 import { formatTransaction } from './utils/transaction'
-import { useModalStore } from './context/ModalContext'
 
 export const App = () => {
   const transactions = useTransactionStore((state) => state.transactions)
@@ -51,8 +52,14 @@ export const App = () => {
         <section className='grid grid-cols-1 md:grid-cols-3 gap-6 mb-12'>
           <StatCard amount={balance} label='Total Balance' variant='balance' />
           <StatCard amount={income} label='Monthly Income' variant='income' />
-          <StatCard amount={expense} label='Monthly Expense' variant='expense' />
+          <StatCard
+            amount={expense}
+            label='Monthly Expense'
+            variant='expense'
+          />
         </section>
+
+        <TransactionChart data={transactions} />
 
         <TransactionList transactions={transactions} onEdit={handleEdit} />
       </div>

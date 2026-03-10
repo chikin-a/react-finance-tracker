@@ -9,3 +9,23 @@ export const formatTransaction = (data: Transaction | NewTransaction) => {
     transactionType: amount < 0 ? 'expense' : 'income',
   } as Transaction
 }
+
+export const formatChartTransactions = (data: Transaction[]) => {
+  const grouped = data.reduce(
+    (acc, t) => {
+      const date = t.date // Можно форматировать, если нужно (напр. YYYY-MM-DD)
+
+      if (!acc[date]) {
+        acc[date] = { income: 0, expense: 0, date }
+      }
+
+      if (t.transactionType === 'income') acc[date].income += Number(t.amount)
+      if (t.transactionType === 'expense') acc[date].expense += Number(t.amount)
+
+      return acc
+    },
+    {} as Record<string, { income: number; expense: number; date: string }>,
+  )
+
+  return Object.values(grouped)
+}
