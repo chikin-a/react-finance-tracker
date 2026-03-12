@@ -1,11 +1,13 @@
 import React from 'react'
+import { Controller, useForm } from 'react-hook-form'
+
+import { EXPENSE_CATEGORIES, type NewTransaction } from '../types'
+
 import { Button } from '../components/Button'
 import { Select } from '../components/Select'
 import { DateInput } from '../components/DateInput'
 import { TextInput } from '../components/TextInput'
 import { NumberInput } from '../components/NumberInput'
-import { Controller, useForm } from 'react-hook-form'
-import { EXPENSE_CATEGORIES, type NewTransaction } from '../types'
 import { CloseIcon } from '../components/icons/CloseIcon'
 
 interface TransactionFormProps {
