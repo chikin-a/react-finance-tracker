@@ -11,8 +11,24 @@ A clean and simple **personal finance tracking web app** that helps users monito
   - Monthly income summary
   - Monthly expense summary
 
+- 📈 **Monthly Cash Flow Chart**
+  - Visual representation of income vs expenses over time
+  - Helps quickly understand spending trends
+
 - ➕ **Add Transactions**
   - Easily add new income or expense entries
+
+- 🔎 **Transaction Search**
+  - Search transactions by name or description
+  - Example: _Rent, Coffee, Salary_
+
+- 🎛 **Transaction Filters**
+  - Filter transactions by type:
+    - All
+    - Income
+    - Expense
+  - Dropdown category selector
+  - Option to reset filters
 
 - 🧾 **Recent Activity**
   - See a history of your latest transactions
@@ -30,12 +46,15 @@ The dashboard includes:
 - **Total Balance Card**
 - **Monthly Income Card**
 - **Monthly Expense Card**
+- **Monthly Cash Flow Chart**
+- **Transaction Search & Filters**
 - **Recent Activity Section**
 
 Example:
 
 - Salary added → `+455`
 - Coffee purchase → `-1.6`
+- Grocery shopping → `-100`
 
 ## 🛠 Tech Stack
 
@@ -94,11 +113,9 @@ react-finance-tracker/
 
 ## 🎯 Future Improvements
 
-- 📈 Charts for income vs expenses
-- 🗂 Transaction categories
-- 🔍 Transaction filtering
-- 👤 User authentication
-- ☁️ Cloud database support
+- 📊 Advanced analytics for spending
+- 📱 Mobile-first UI improvements
+- 📂 Custom transaction categories
 
 ## 🤝 Contributing
 
