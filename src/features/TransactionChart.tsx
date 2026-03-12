@@ -19,7 +19,10 @@ type TransactionChartProps = {
 }
 
 export const TransactionChart: React.FC<TransactionChartProps> = ({ data }) => {
-  const formattedData = useMemo(() => formatChartTransactions(data), [data])
+  const formattedData = useMemo(
+    () => formatChartTransactions(data).reverse(),
+    [data],
+  )
   const hasData = formattedData.length > 0
 
   return (
