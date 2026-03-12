@@ -1,17 +1,19 @@
+import { useMemo, useState } from 'react'
 import { useBalance } from './hooks/useBalance'
+import { useModalStore } from './context/ModalContext'
 import { useTransactionStore } from './context/TransactionContext'
 
-import type { NewTransaction, Transaction } from './types'
+import type { Filter, NewTransaction, Transaction } from './types'
 
 import { Modal } from './features/Modal'
 import { Header } from './features/Header'
 import { NewForm } from './features/NewForm'
 import { StatCard } from './components/StatCard'
-import { useModalStore } from './context/ModalContext'
+import { FilterForm } from './features/FilterForm'
 import { TransactionForm } from './features/TransactionForm'
 import { TransactionList } from './features/TransactionList'
 import { TransactionChart } from './features/TransactionChart'
-import { formatTransaction } from './utils/transaction'
+import { filterTransactions, formatTransaction } from './utils/transaction'
 
 export const App = () => {
   const transactions = useTransactionStore((state) => state.transactions)
@@ -20,6 +22,12 @@ export const App = () => {
   const removeTransaction = useTransactionStore(
     (state) => state.removeTransaction,
   )
+
+  const [filters, setFilters] = useState<Filter>({
+    search: '',
+    category: '',
+    transactionType: 'all',
+  })
 
   const { activeModal, payload, openModal, closeModal } = useModalStore()
 
@@ -44,6 +52,14 @@ export const App = () => {
     openModal('edit', transaction)
   }
 
+  const handleFilter = (filters: Filter) => {
+    setFilters(filters)
+  }
+
+  const filteredTransactions = useMemo(() => {
+    return filterTransactions(transactions, filters)
+  }, [transactions, filters])
+
   return (
     <div className='min-h-screen bg-[#FBF9F6] text-stone-900 font-sans antialiased pb-20'>
       <div className='max-w-4xl mx-auto px-6 pt-12'>
@@ -61,7 +77,12 @@ export const App = () => {
 
         <TransactionChart data={transactions} />
 
-        <TransactionList transactions={transactions} onEdit={handleEdit} />
+        <FilterForm onFilterChange={handleFilter} />
+
+        <TransactionList
+          transactions={filteredTransactions}
+          onEdit={handleEdit}
+        />
       </div>
 
       <Modal isOpen={activeModal === 'new'} onClose={closeModal}>
