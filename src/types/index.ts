@@ -15,7 +15,7 @@ export const EXPENSE_CATEGORIES = [
 
 export type Category = (typeof EXPENSE_CATEGORIES)[number]
 
-export type TransitionType = 'income' | 'expense'
+export type TransitionType = 'income' | 'expense' | 'all'
 
 export type Modal = 'new' | 'edit' | null
 
@@ -28,5 +28,11 @@ export interface NewTransaction {
 
 export interface Transaction extends NewTransaction {
   id: string
+  transactionType: TransitionType
+}
+
+export interface Filter {
+  search: string
+  category: Category
   transactionType: TransitionType
 }

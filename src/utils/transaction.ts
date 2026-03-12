@@ -1,4 +1,4 @@
-import type { NewTransaction, Transaction } from '../types'
+import type { Filter, NewTransaction, Transaction } from '../types'
 
 export const formatTransaction = (data: Transaction | NewTransaction) => {
   const amount = Number(data.amount)
@@ -29,3 +29,18 @@ export const formatChartTransactions = (data: Transaction[]) => {
 
   return Object.values(grouped)
 }
+
+export const filterTransactions = (data: Transaction[], filters: Filter) =>
+  data.filter((t) => {
+    const matchSearch =
+      !filters.search ||
+      t.description.toLowerCase().includes(filters.search.toLowerCase())
+
+    const matchCategory = !filters.category || t.category === filters.category
+
+    const matchType =
+      filters.transactionType === 'all' ||
+      t.transactionType === filters.transactionType
+
+    return matchSearch && matchCategory && matchType
+  })
